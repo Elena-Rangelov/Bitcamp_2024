@@ -100,4 +100,3 @@ def get_hard_skills_all_files(folder_path='resumes/INFORMATION-TECHNOLOGY/'):
 
 	return(all_files)
 
-print(get_hard_skills('resumes/INFORMATION-TECHNOLOGY/10089434.pdf'))
