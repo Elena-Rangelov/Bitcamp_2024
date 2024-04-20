@@ -7,9 +7,37 @@
 </head>
 <body>
     <h1>Upload PDF</h1>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="pdf_file" accept=".pdf" required>
-        <button type="submit">Upload</button>
-    </form>
+    <input type="file" id="pdfFileInput" accept=".pdf" required>
+    <button onclick="uploadFile()">Upload</button>
+
+    <script>
+        function uploadFile() {
+            const fileInput = document.getElementById('pdfFileInput');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert('Please select a file to upload.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('pdf_file', file);
+
+            fetch('http://example.com/upload', {
+                method: 'POST',
+                body: formData  
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('File uploaded successfully.');
+                } else {
+                    alert('Error uploading file.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
 </body>
 </html>

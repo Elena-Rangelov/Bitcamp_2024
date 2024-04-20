@@ -1,17 +1,17 @@
+from flask import Flask, request, send_from_directory
 import os
-from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 # Define the folder where uploaded files will be saved
-UPLOAD_FOLDER = '/uploads'
+UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def home():
-    return render_template('upload.html')
+    return send_from_directory('templates', 'upload.html')
 
-@app.route('/templates/upload.html', methods=['POST'])
+@app.route('/upload', methods=['POST'])
 def upload_file():
     if 'pdf_file' not in request.files:
         return "No file uploaded", 400
@@ -26,4 +26,4 @@ def upload_file():
     return "File uploaded successfully"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='https://talentide.us/upload.html', port=443 , debug=True)
