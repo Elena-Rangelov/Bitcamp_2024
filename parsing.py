@@ -22,6 +22,7 @@ def extract_hard_skills(words):
 
 	skills = word_tokenize(file_content)
 	skills = [word.lower() for word in skills]
+	skills = lemmatize(skills)
 
 	return [word for word in words if word in skills]
 
@@ -42,6 +43,16 @@ def extract_text_from_pdf(file_path):
 
 
 
+# lemmatizes list of words with wordnet
+# NOTE: does not change words ending in -ing
+
+def lemmatize(words):
+	wordnet_lemmatizer = WordNetLemmatizer()
+	return([wordnet_lemmatizer.lemmatize(word) for word in words])
+
+
+############### USEFUL FUNCTIONS
+
 # returns a list of hard skills from the given resume file location
 # eg ['skill1', 'skill2', ...]
 
@@ -61,12 +72,9 @@ def get_hard_skills(filepath):
 		filtered_words = [''.join([char for char in word if char not in string.punctuation + '“']) for word in filtered_words]
 		filtered_words = [word for word in filtered_words if word != '']
 
-		# lemmatizing with wordnet - 
-		# NOTE: does not change words ending in -ing
-		wordnet_lemmatizer = WordNetLemmatizer()
-		filtered_words = [wordnet_lemmatizer.lemmatize(word) for word in filtered_words]
+		# lemmatize
+		filtered_words = lemmatize(filtered_words)
 
-		# print(filtered_words)
 
 		return extract_hard_skills(filtered_words)
 
@@ -76,7 +84,7 @@ def get_hard_skills(filepath):
 # returns a list of lists of the hard skills of each resume in the folder path given
 # eg: [['student1_skill1', 'student1_skill2', ...], ['student2_skill1', 'student2_skill2', ...], ...]
 
-def hard_skills_all_files(folder_path='resumes/INFORMATION-TECHNOLOGY/'):
+def get_hard_skills_all_files(folder_path='resumes/INFORMATION-TECHNOLOGY/'):
 
 	# Get a list of all files in the folder
 	file_list = os.listdir(folder_path)
@@ -91,8 +99,6 @@ def hard_skills_all_files(folder_path='resumes/INFORMATION-TECHNOLOGY/'):
 		all_files.append(get_hard_skills(folder_path+pdf_file))
 
 	return(all_files)
-
-hard_skills_all_files()
 		
-
+print(get_hard_skills_all_files())
 
