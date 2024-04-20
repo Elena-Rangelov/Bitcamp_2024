@@ -99,6 +99,5 @@ def get_hard_skills_all_files(folder_path='resumes/INFORMATION-TECHNOLOGY/'):
 		all_files.append(get_hard_skills(folder_path+pdf_file))
 
 	return(all_files)
-		
-print(get_hard_skills_all_files())
 
+print(get_hard_skills('resumes/INFORMATION-TECHNOLOGY/10089434.pdf'))
