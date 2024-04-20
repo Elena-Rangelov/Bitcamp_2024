@@ -26,4 +26,4 @@ def upload_file():
     return "File uploaded successfully"
 
 if __name__ == '__main__':
-    app.run(host='https://talentide.us/upload.html', port=443 , debug=True)
+    app.run(host='https://talentide.us/templates/upload.html', port=443 , debug=True)
