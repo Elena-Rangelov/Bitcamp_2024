@@ -7,8 +7,27 @@ from nltk.corpus import wordnet
 import regex as re
 import string
 from nltk.stem import PorterStemmer, WordNetLemmatizer
-# nltk.download('wordnet')
+nltk.download('punkt')
 
+
+
+# extracts hard skills from a list of strings
+
+def extract_hard_skills(words):
+    	
+	file_path = 'hardskills.txt'
+
+	with open(file_path, 'r') as file:
+		file_content = file.read()
+
+	skills = word_tokenize(file_content)
+	skills = [word.lower() for word in skills]
+
+	return [word for word in words if word in skills]
+
+
+
+# extracts text from a pdf at the given file path and returns the text as a long string
 
 def extract_text_from_pdf(file_path):
 	try:
@@ -21,36 +40,59 @@ def extract_text_from_pdf(file_path):
 		print(f"Error reading PDF: {e}")
 		return None
 
-# Example usage
-pdf_file_path = 'resumes/INFORMATION-TECHNOLOGY/10089434.pdf'
-pdf_text = extract_text_from_pdf(pdf_file_path)
 
-# Download NLTK resources (if not already downloaded)
-nltk.download('punkt')
 
-if pdf_text:
-    	# Tokenize the text into words
-	words = word_tokenize(pdf_text.lower())
-	
-	# remove duplicates
-	unique_word_tokens = list(set(words))
+# returns a list of hard skills from the given resume file location
+# eg ['skill1', 'skill2', ...]
 
-	words = [word for word in unique_word_tokens]
-	
-	# remove stopwords
-	stopwords = set(nltk.corpus.stopwords.words('english'))
-	filtered_words = [word for word in words if word not in stopwords]
-	
-	# remove punctuation
-	filtered_words = [''.join([char for char in word if char not in string.punctuation + '“']) for word in filtered_words]
-	filtered_words = [word for word in filtered_words if word != '']
+def get_hard_skills(filepath):
+    	
+	pdf_text = extract_text_from_pdf(filepath)
 
-	# lemmatizing with wordnet - 
-	# NOTE: does not change words ending in -ing
-	wordnet_lemmatizer = WordNetLemmatizer()
-	filtered_words = [wordnet_lemmatizer.lemmatize(word) for word in filtered_words]
+	if pdf_text:
+			# Tokenize the text into words
+		words = word_tokenize(pdf_text.lower())
+			
+		# remove stopwords
+		stopwords = set(nltk.corpus.stopwords.words('english'))
+		filtered_words = [word for word in words if word not in stopwords]
+		
+		# remove punctuation
+		filtered_words = [''.join([char for char in word if char not in string.punctuation + '“']) for word in filtered_words]
+		filtered_words = [word for word in filtered_words if word != '']
 
-	print(filtered_words)
-	
+		# lemmatizing with wordnet - 
+		# NOTE: does not change words ending in -ing
+		wordnet_lemmatizer = WordNetLemmatizer()
+		filtered_words = [wordnet_lemmatizer.lemmatize(word) for word in filtered_words]
+
+		# print(filtered_words)
+
+		return extract_hard_skills(filtered_words)
+
+
+
+
+# returns a list of lists of the hard skills of each resume in the folder path given
+# eg: [['student1_skill1', 'student1_skill2', ...], ['student2_skill1', 'student2_skill2', ...], ...]
+
+def hard_skills_all_files(folder_path='resumes/INFORMATION-TECHNOLOGY/'):
+
+	# Get a list of all files in the folder
+	file_list = os.listdir(folder_path)
+
+	# Filter out only PDF files
+	pdf_files = [file for file in file_list if file.lower().endswith('.pdf')]
+
+	# Cycle through each PDF file
+	all_files = []
+
+	for pdf_file in pdf_files:
+		all_files.append(get_hard_skills(folder_path+pdf_file))
+
+	return(all_files)
+
+hard_skills_all_files()
+		
 
 
