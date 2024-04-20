@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAuth with Google</title>
+</head>
 <body>
-  <h1>Login</h1>
-  <a href="google?client_id=1083267012795-ibvu42c1pndrf99burjop50rajtcj447.apps.googleusercontent.com&redirect_uri=index.html">
-    Login with Google</a>
+    <h1>OAuth with Google</h1>
+    <p>Click the button below to authorize with Google:</p>
+    <a href="{{ oauth_link }}">Authorize with Google</a>
 </body>
 </html>
