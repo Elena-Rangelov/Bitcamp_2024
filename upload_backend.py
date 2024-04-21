@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Initialize Cloudflare client
-cf = Cloudflare("talentide.app@gmail.com", "c2659d7873c9a94e4087d94de9206cf537074", "9b40615208e01c94610c2354916096c2")
+cf = Cloudflare("talentide.app@gmail.com", "q86E-uByo12Vu3GmqHS3yTJ-YFWYQlqryB8_4-9i", "9b40615208e01c94610c2354916096c2")
 
 @app.route('/store-pdf', methods=['POST'])
 def store_pdf():
