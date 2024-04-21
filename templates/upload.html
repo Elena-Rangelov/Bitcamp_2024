@@ -23,7 +23,7 @@
       formData.append('file', fileInput); // Add the file to the FormData object
 
       try {
-        const response = await fetch('YOUR_WORKER_URL', {
+        const response = await fetch('production.talentide.talentide-app.workers.dev/template/upload.html', {
           method: 'POST',
           body: formData,
           headers: {
