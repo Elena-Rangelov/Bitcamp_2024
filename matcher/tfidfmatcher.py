@@ -68,12 +68,15 @@ class Matcher:
       self.X[i] = Matcher.to_vec(self.student_model, job, self.num_words)
     self.knn = NearestNeighbors(n_neighbors=5, metric="jaccard").fit(self.X)
 
-  def predict(self, student_tokens):
+  def predict(self, student_tokens, n=10):
+    return (-self.predict_raw(student_tokens)).argsort()[:n]
+  
+  def predict_raw(self, student_tokens):
     corpus = self.student_dict.doc2bow(student_tokens)
     m = self.X @ Matcher.to_vec(self.student_model, corpus, self.num_words).reshape(-1)
     d, i = self.knn.kneighbors(Matcher.to_vec(self.student_model, corpus, self.num_words).reshape(1,-1))
     m[i] = m[i] + d + [.04, .03, .02, .01, .00]
-    return (-m).argsort()[:10]
+    return m
   
 # matcher = Matcher()
 # matcher.fit(student_data, job_data)
