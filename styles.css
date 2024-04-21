@@ -309,7 +309,24 @@ header.black-background {
     max-height: 220px;
   }
 
+  .about-f-t {
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    font-family: "RoseHot", sans-serif;
+    font-size: 150px;
+    color: #ffffff;
+    font-weight: 300;
+    
+  }
 
-
-  
-  
+  .about-f {
+    position: absolute;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    top: -2%;
+    display: flex;
+    justify-content: center;
+    max-height: 700px;
+  }
