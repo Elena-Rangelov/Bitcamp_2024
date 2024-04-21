@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, render_template, request, jsonify
 import requests
 
 app = Flask(__name__)
@@ -11,8 +11,7 @@ def index():
 def upload_file():
     pdf_file = request.files['pdfFile']
     if pdf_file:
-        files = {'pdfFile': pdf_file}
-        response = requests.post('https://your-worker-subdomain.your-account.workers.dev/upload', files=files)
+        response = requests.post('https://your-worker-subdomain.your-account.workers.dev/storepdf', files={'pdfFile': pdf_file})
         return response.text
     else:
         return 'No file selected.'
