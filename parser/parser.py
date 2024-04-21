@@ -82,7 +82,22 @@ class Parser():
 
 			return Parser.extract_hard_skills(filtered_words)
 
+	def parse_hard_skills(st):
+		words = word_tokenize(st.lower())
+			
+		# remove stopwords
+		stopwords = set(nltk.corpus.stopwords.words('english'))
+		filtered_words = [word for word in words if word not in stopwords]
+		
+		# remove punctuation
+		filtered_words = [''.join([char for char in word if char not in string.punctuation + '“']) for word in filtered_words]
+		filtered_words = [word for word in filtered_words if word != '']
 
+		# lemmatize
+		filtered_words = Parser.lemmatize(filtered_words)
+
+
+		return Parser.extract_hard_skills(filtered_words)
 
 
 	# returns a list of lists of the hard skills of each resume in the folder path given
@@ -104,4 +119,4 @@ class Parser():
 
 		return(all_files)
 
-print(Parser.get_hard_skills('resumes/INFORMATION-TECHNOLOGY/10089434.pdf'))
+# print(Parser.get_hard_skills('resumes/INFORMATION-TECHNOLOGY/10089434.pdf'))
