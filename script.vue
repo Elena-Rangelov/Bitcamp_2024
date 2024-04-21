@@ -10,6 +10,10 @@ window.addEventListener('scroll', () => {
     text1.style.marginTop = value * 1.5 + 'px';
     arrow.style.marginTop = value * 1.5 + 'px';
     resume.style.marginTop = value * 2.5 + 'px';
+
+    if (value > 10) {
+        resume.style.display = none;
+    }
 });
 
 window.addEventListener('scroll', function() {

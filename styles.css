@@ -125,7 +125,6 @@ header{
     position: relative;
     background-color: #ffffff;
     padding-top: 200px;
-    padding-bottom: 200px;
     z-index: 2;
     text-align: center;
     
@@ -287,6 +286,29 @@ header.black-background {
     margin-bottom: 30px;
     z-index: 10;
   }
+
+.final-text {
+    position: absolute;
+    font-family: "RoseHot", sans-serif;
+    font-size: 70px;
+    color: #000000;
+    top: 220%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 30%;
+    z-index: 100;
+  }
+
+  #logo-icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 120%;
+    max-height: 220px;
+  }
+
 
 
   
