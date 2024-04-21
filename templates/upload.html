@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF</title>
+</head>
+<body>
+    <h1>Upload PDF</h1>
+    <input type="file" id="pdfFileInput" accept=".pdf" required>
+    <button onclick="uploadFile()">Upload</button>
+
+    <script>
+        function uploadFile() {
+            const fileInput = document.getElementById('pdfFileInput');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert('Please select a file to upload.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('pdf_file', file);
+
+            fetch('./upload.html', {
+                method: 'GET',
+                body: formData  
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('File uploaded successfully.');
+                } else {
+                    alert('Error uploading file.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
