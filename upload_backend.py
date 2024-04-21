@@ -36,7 +36,7 @@ CORS(app, resources={r"/store-pdf": {"origins": "https://talentide.us"}})
 
 # Initialize Cloudflare client
 # Replace placeholders with your actual Cloudflare credentials
-cf = Cloudflare("talentide.app@gmail.com", "cehuLJutVVqLWIMtlJdfKo2upxRD1E-MLL-wgcY_", "9b40615208e01c94610c2354916096c2")
+cf = Cloudflare("talentide.app@gmail.com", "c2659d7873c9a94e4087d94de9206cf537074", "9b40615208e01c94610c2354916096c2")
 
 @app.route('/store-pdf', methods=['POST'])
 def store_pdf():
