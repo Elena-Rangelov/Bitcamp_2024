@@ -17,38 +17,43 @@
 }
 
 body {
-    background: #ffffff;
-    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-image: url("images/bgs/grey-texture-bg.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
-li, a, button {
+li, a {
     font-family: 'RoseHot', sans-serif;
-    font-size: 25px;
+    font-size: 17px;
     font-weight: 500;
-    color: #000000;
+    color: #ffffff;
     text-decoration: none;
 }
 
 header{
-    position: absolute;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 7px 3%;
+    padding: 25px 3%;
     z-index: 100;
+    transition: background-color 0.8s ease;
 }
 
 .logo {
     cursor: pointer;
-    max-height: 100px;
+    max-height: 30px;
     margin-right: auto;
+    margin-top: auto;
 }
 
 .nav__links {
     list-style: none;
+    background-color: transparent;
 }
 
 .nav__links li {
@@ -64,44 +69,24 @@ header{
     color: #d1d1d1;
 }
 
-button {
-    padding: 9px 25px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
-
-button:hover {
-    background-color: #000000;
-}
-
-.parallax {
-    position: relative;
-    display: flex;
-    justify-content: center;   
-    align-items: center;
-    height: 100vh;
-}
-
 .title-text {
     position: absolute;
     font-family: "Roboto Serif", serif;
-    color: black;
+    color: rgb(255, 255, 255);
     text-align: right;
-    font-size: 28px;
+    font-size: 34px;
     z-index: 1;
-    top: 37%;
+    top: 27%;
     left: 58.6%;
-    line-height: 24px;
+    line-height: 28px;
 }
 
 .down-arrow {
     position: absolute;
-    color: #000000;
-    top: 53%;
-    left: 69%;
-    width: 30px;
+    color: #ffffff;
+    top: 46.5%;
+    left: 71%;
+    width: 40px;
     z-index: 1;
     animation: animate 2s infinite;
 }
@@ -118,6 +103,16 @@ button:hover {
     }
 }
 
+.parallax {
+    position: relative;
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+    height: 100vh;
+    z-index: 1;
+    overflow: hidden;
+}
+
 .parallax img {
     position: relative;
     top: 0;
@@ -126,6 +121,31 @@ button:hover {
     pointer-events: none;
 }
 
+.sec {
+    position: relative;
+    background-color: #ffffff;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    z-index: 2;
+    text-align: right;
+    justify-self: center;
+}
+
+.sec p {
+    margin-right: 75px;
+}
+
+.sec p:first-child {
+    font-family: "Roboto Serif", serif;
+    font-size: 30px;
+    color: #000000;
+    margin-bottom: 50px;
+}
+
+header.black-background {
+    background-color: black;
+  }
+  
 
 
   
