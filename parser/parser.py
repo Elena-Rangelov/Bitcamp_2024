@@ -7,30 +7,29 @@ from nltk.corpus import wordnet
 import regex as re
 import string
 from nltk.stem import PorterStemmer, WordNetLemmatizer
+from nltk.corpus import words as wordle
 nltk.download('wordnet')
 nltk.download('punkt')
-
-# extracts hard skills from a list of strings
+nltk.download('words')
 
 class Parser():
-
 	def __init__():
 		pass
 
-	def extract_hard_skills(words):
-				
-		file_path = 'hardskills.txt'
+	def extract_hard_skills(words):	
+		lemmatizer = WordNetLemmatizer()
 
-		with open(file_path, 'r') as file:
-			file_content = file.read()
-
-		skills = word_tokenize(file_content)
-		skills = [word.lower() for word in skills]
-		skills = Parser.lemmatize(skills)
-
-		return [word for word in words if word in skills]
+		# Filter and lemmatize words
+		hard_skills = [lemmatizer.lemmatize(word) for word in words if word.lower() in english]
+		return hard_skills
 
 
+
+		# skills = word_tokenize(file_content)
+		# skills = [word.lower() for word in skills]
+		# skills = Parser.lemmatize(skills)
+
+		# return [word for word in words if word in skills]
 
 	# extracts text from a pdf at the given file path and returns the text as a long string
 
@@ -44,8 +43,6 @@ class Parser():
 		except Exception as e:
 			print(f"Error reading PDF: {e}")
 			return None
-
-
 
 	# lemmatizes list of words with wordnet
 	# NOTE: does not change words ending in -ing
@@ -78,7 +75,6 @@ class Parser():
 
 			# lemmatize
 			filtered_words = Parser.lemmatize(filtered_words)
-
 
 			return Parser.extract_hard_skills(filtered_words)
 
@@ -119,4 +115,11 @@ class Parser():
 
 		return(all_files)
 
-# print(Parser.get_hard_skills('resumes/INFORMATION-TECHNOLOGY/10089434.pdf'))
+hardskills = "hardskills.txt"
+# extracts hard skills from a list of strings
+with open("hardskills.txt", 'r') as file:
+	file_content = file.read()
+skills = Parser.lemmatize([word.lower() for word in word_tokenize(file_content)])
+
+stop_words = set(nltk.corpus.stopwords.words('english'))
+english = set(wordle.words() + skills)
