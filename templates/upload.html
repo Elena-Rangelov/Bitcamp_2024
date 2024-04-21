@@ -11,7 +11,7 @@
     <button onclick="uploadFile()">Upload</button>
 
     <script>
-        function uploadFile() {
+        async function uploadFile() {
             const fileInput = document.getElementById('pdfFileInput');
             const file = fileInput.files[0];
 
@@ -23,20 +23,21 @@
             const formData = new FormData();
             formData.append('pdf_file', file);
 
-            fetch('https://talentide.us/upload.html', {
-                method: 'POST',
-                body: formData  
-            })
-            .then(response => {
+            try {
+                const response = await fetch('https://your-worker-url.example.com/talentide.us/templates/upload.html', {
+                    method: 'POST',
+                    body: formData  
+                });
+
                 if (response.ok) {
                     alert('File uploaded successfully.');
                 } else {
                     alert('Error uploading file.');
                 }
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error('Error:', error);
-            });
+                alert('Error uploading file.');
+            }
         }
     </script>
 </body>
