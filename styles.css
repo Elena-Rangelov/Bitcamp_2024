@@ -164,7 +164,78 @@ header{
 header.black-background {
     background-color: black;
   }
+
+.contact-h {
+    font-family: "RoseHot", sans-serif;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    font-size: 80px;
+    font-weight: 500;
+    line-height: 75px;
+    color: #ffffff;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+.contact-b {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    line-height: 5%;
+    font-family: "Roboto Serif", serif;
+    font-size: 24px; 
+    color: #ffffff; 
+  }
   
+  .in-labels {
+    font-family: "Roboto Serif", serif;
+    font-size: 20px;
+    color: #ffffff00;
+    margin-right: 10px;
+  }
+  
+  .input-box {
+    border: 0;
+    background: transparent;
+    outline: 0;
+    border-bottom: 2px solid #ffffff;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 350px;
+    height: 30px; 
+    display: flex;
+    justify-content: center;
+  }
+
+  .input-box::placeholder {
+    font-size: 18px;
+    color: #ffffff;
+    font-family: "Roboto Serif", serif;
+  }
+
+  .input-box#message {
+    height: 150px;
+    width: 350px;
+    margin-bottom: 30px;
+  }
+  
+  .submit-button {
+    background-color: #151515;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    height: 40px;
+    width: 350px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #b70202;
+    transition: background-color 1s ease-out 100ms
+  }
+
+
 
 
   
