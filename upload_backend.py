@@ -29,14 +29,14 @@
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-# Import Cloudflare client or Cloudflare SDK
+from cloudflare import Cloudflare
 
 app = Flask(__name__)
 CORS(app)
 
 # Initialize Cloudflare client
 # Replace placeholders with your actual Cloudflare credentials
-# cf = Cloudflare("YOUR_EMAIL", "YOUR_API_KEY", "YOUR_ACCOUNT_ID")
+cf = Cloudflare("talentide.app@gmail.com", "7d9fTTtYIqIe3ChieVZMx9K9wSxIy3E_qkSpbHO7", "9b40615208e01c94610c2354916096c2")
 
 @app.route('/store-pdf', methods=['POST'])
 def store_pdf():
