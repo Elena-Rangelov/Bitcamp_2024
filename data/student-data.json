@@ -1,35 +1,110 @@
 {"students": [
-    {"userId": 1,
-    "name": "John Doe",
-    "resume": "1.pdf",
-    "info": {
-      "grad": 2025,
-      "gpa": 3.94},
-    "preferences": {
-      "type": "full",
-      "size": "medium",
-      "location": "Maryland"}},
+  {"id": 1,
+  "name": "John Doe",
+  "resume": "1.pdf",
+  "info": {
+    "grad": 2025,
+    "gpa": 3.94},
+  "preferences": {
+    "type": "full",
+    "size": "medium",
+    "location": "Maryland"}},
 
-    {"userId": 2,
-    "name": "Jane Doe",
-    "resume": "2.pdf",
-    "info": {
-      "grad": 2026,
-      "gpa": 3.46},
-    "preferences": {
-      "type": "part",
-      "size": "small",
-      "location": "Pennsylvania"}},
+  {"id": 2,
+  "name": "Harvey Specter",
+  "resume": "2.pdf",
+  "info": {
+    "grad": 2026,
+    "gpa": 3.46},
+  "preferences": {
+    "type": "part",
+    "size": "small",
+    "location": "Pennsylvania"}},
 
-    {"userId": 3,
-    "name": "Another Human",
-    "resume": "3.pdf",
-    "info": {
-      "grad": 2025,
-      "gpa": 2.98},
-    "preferences": {
-      "type": "internship",
-      "size": "large",
-      "location": "DC"}}
-  ]
-}
+  {"id": 3,
+  "name": "Johnny Truant",
+  "resume": "3.pdf",
+  "info": {
+    "grad": 2025,
+    "gpa": 2.98},
+  "preferences": {
+    "type": "internship",
+    "size": "large",
+    "location": "DC"}},
+
+  {"id": 4,
+  "name": "Shawn Spencer",
+  "resume": "4.pdf",
+  "info": {
+    "grad": 2027,
+    "gpa": 3.34},
+  "preferences": {
+    "type": "internship",
+    "size": "medium",
+    "location": "California"}},
+
+  {"id": 5,
+  "name": "Ford Prefect",
+  "resume": "5.pdf",
+  "info": {
+    "grad": 2025,
+    "gpa": 4.00},
+  "preferences": {
+    "type": "internship",
+    "size": "large",
+    "location": "New York"}},
+  
+  {"id": 6,
+  "name": "Arthur Dent",
+  "resume": "6.pdf",
+  "info": {
+    "grad": 2025,
+    "gpa": 3.52},
+  "preferences": {
+    "type": "internship",
+    "size": "small",
+    "location": "Virginia"}},
+  
+  {"id": 7,
+  "name": "Atticus Finch",
+  "resume": "7.pdf",
+  "info": {
+    "grad": 2026,
+    "gpa": 3.65},
+  "preferences": {
+    "type": "full",
+    "size": "medium",
+    "location": "Maryland"}},
+
+  {"id": 8,
+  "name": "Jane Doe",
+  "resume": "8.pdf",
+  "info": {
+    "grad": 2025,
+    "gpa": 3.76},
+  "preferences": {
+    "type": "internship",
+    "size": "medium",
+    "location": "DC"}},
+
+  {"id": 9,
+  "name": "Fnu Lnu",
+  "resume": "9.pdf",
+  "info": {
+    "grad": 2027,
+    "gpa": 3.12},
+  "preferences": {
+    "type": "full",
+    "size": "small",
+    "location": "Pennsylvania"}},
+    
+  {"id": 10,
+  "name": "Alice Smith",
+  "resume": "10.pdf",
+  "info": {
+    "grad": 2027,
+    "gpa": 3.41},
+  "preferences": {
+    "type": "part",
+    "size": "medium",
+    "location": "Georgia"}}]}

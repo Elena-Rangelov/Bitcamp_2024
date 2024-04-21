@@ -73,8 +73,7 @@ class Matcher:
     m = self.X @ Matcher.to_vec(self.student_model, corpus, self.num_words).reshape(-1)
     d, i = self.knn.kneighbors(Matcher.to_vec(self.student_model, corpus, self.num_words).reshape(1,-1))
     m[i] = m[i] + d + [.04, .03, .02, .01, .00]
-    print(m)
-    return (-m).argsort()[:5]
+    return (-m).argsort()[:10]
   
 # matcher = Matcher()
 # matcher.fit(student_data, job_data)
