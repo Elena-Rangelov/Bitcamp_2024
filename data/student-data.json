@@ -1,0 +1,35 @@
+{"students": [
+    {"userId": 1,
+    "name": "John Doe",
+    "resume": "1.pdf",
+    "info": {
+      "grad": 2025,
+      "gpa": 3.94},
+    "preferences": {
+      "type": "full",
+      "size": "medium",
+      "location": "Maryland"}},
+
+    {"userId": 2,
+    "name": "Jane Doe",
+    "resume": "2.pdf",
+    "info": {
+      "grad": 2026,
+      "gpa": 3.46},
+    "preferences": {
+      "type": "part",
+      "size": "small",
+      "location": "Pennsylvania"}},
+
+    {"userId": 3,
+    "name": "Another Human",
+    "resume": "3.pdf",
+    "info": {
+      "grad": 2025,
+      "gpa": 2.98},
+    "preferences": {
+      "type": "internship",
+      "size": "large",
+      "location": "DC"}}
+  ]
+}

@@ -6,39 +6,30 @@
     <title>Upload PDF</title>
 </head>
 <body>
-    <h1>Upload PDF</h1>
-    <input type="file" id="pdfFileInput" accept=".pdf" required>
-    <button onclick="uploadFile()">Upload</button>
+    <h1>Upload PDF File</h1>
+    <form id="uploadForm">
+        <input type="file" id="pdfFile" accept=".pdf" required>
+        <button type="submit">Upload</button>
+    </form>
 
     <script>
-        async function uploadFile() {
-            const fileInput = document.getElementById('pdfFileInput');
-            const file = fileInput.files[0];
-
-            if (!file) {
-                alert('Please select a file to upload.');
-                return;
-            }
-
+        document.getElementById('uploadForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
             const formData = new FormData();
-            formData.append('pdf_file', file);
-
+            const fileInput = document.getElementById('pdfFile');
+            formData.append('pdfFile', fileInput.files[0]);
+            
             try {
-                const response = await fetch('https://your-worker-url.example.com/talentide.us/templates/upload.html', {
+                const response = await fetch('https://your-worker-subdomain.your-account.workers.dev/upload', {
                     method: 'POST',
-                    body: formData  
+                    body: formData
                 });
-
-                if (response.ok) {
-                    alert('File uploaded successfully.');
-                } else {
-                    alert('Error uploading file.');
-                }
+                const result = await response.text();
+                alert(result);
             } catch (error) {
                 console.error('Error:', error);
-                alert('Error uploading file.');
             }
-        }
+        });
     </script>
 </body>
 </html>
