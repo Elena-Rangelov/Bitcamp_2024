@@ -26,6 +26,9 @@
         const response = await fetch('YOUR_WORKER_URL', {
           method: 'POST',
           body: formData,
+          headers: {
+            'Content-Type': 'multipart/form-data', // Set the correct Content-Type header
+          },
         });
 
         const result = await response.text();
