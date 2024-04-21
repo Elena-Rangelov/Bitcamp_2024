@@ -1,28 +1,31 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-from cloudflare import Cloudflare
+from flask import Flask, request
+import requests
+import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/store-pdf": {"origins": "https://talentide.us"}})
 
-# Initialize Cloudflare client
-cf = Cloudflare("talentide.app@gmail.com", "F-CjUXKKFU5dNueBbAmCr9RiuTsRehKOOMN-tfIf", "9b40615208e01c94610c2354916096c2")
+UPLOAD_FOLDER = '/path/to/your/upload/folder'
+WORKERS_ROUTE = 'https://your-workers-route.your-account.workers.dev'
 
-@app.route('/store-pdf', methods=['POST'])
-def store_pdf():
-    pdf_file = request.files['pdf_file']
-    if pdf_file.filename == '':
-        return jsonify({'error': 'No file uploaded'}), 400
+@app.route('/')
+def index():
+    return open('upload.html', 'r').read()
 
-    try:
-        # Save the PDF file to Cloudflare Workers KV
-        key = 'uploads/' + pdf_file.filename
-        with pdf_file as file_data:
-            cf.upload_file(key, file_data.read())
-        
-        return jsonify({'message': 'File uploaded successfully'}), 200
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    pdf_file = request.files['pdfFile']
+    if pdf_file.filename != '':
+        pdf_file.save(os.path.join(UPLOAD_FOLDER, pdf_file.filename))
+        upload_to_workers(pdf_file.filename)
+        return 'File uploaded successfully and stored in Cloudflare KV.'
+    else:
+        return 'No file selected.'
+
+def upload_to_workers(filename):
+    url = f'{WORKERS_ROUTE}/storepdf'
+    files = {'pdfFile': open(os.path.join(UPLOAD_FOLDER, filename), 'rb')}
+    response = requests.post(url, files=files)
+    print(response.text)
 
 if __name__ == '__main__':
     app.run(debug=True)

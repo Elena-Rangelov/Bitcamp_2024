@@ -6,38 +6,10 @@
     <title>Upload PDF</title>
 </head>
 <body>
-    <h1>Upload PDF</h1>
-    <input type="file" id="pdfFileInput" accept=".pdf" required>
-    <button onclick="uploadFile()">Upload</button>
-
-    <script>
-        function uploadFile() {
-            const fileInput = document.getElementById('pdfFileInput');
-            const file = fileInput.files[0];
-
-            if (!file) {
-                alert('Please select a file to upload.');
-                return;
-            }
-
-            const formData = new FormData();
-            formData.append('pdf_file', file);
-
-            fetch('https://production.talentide.talentide-app.workers.dev/templates/upload.html', {
-                method: 'POST',
-                body: formData  
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('File uploaded successfully.');
-                } else {
-                    alert('Error uploading file.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
-    </script>
+    <h1>Upload PDF File</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="pdfFile" accept=".pdf" required>
+        <button type="submit">Upload</button>
+    </form>
 </body>
 </html>
