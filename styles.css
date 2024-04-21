@@ -10,16 +10,6 @@
     src: url('fonts/Rosehot.ttf') format('truetype');
 }
 
-.roboto-serif {
-    font-family: "Roboto Serif", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings:
-      "wdth" 100,
-      "GRAD" 0;
-  }
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -94,19 +84,24 @@ button:hover {
     height: 100vh;
 }
 
-#title-text {
+.title-text {
     position: absolute;
     font-family: "Roboto Serif", serif;
     color: black;
+    text-align: right;
+    font-size: 28px;
+    z-index: 1;
+    top: 37%;
+    left: 58.6%;
+    line-height: 24px;
 }
 
 .parallax img {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
     pointer-events: none;
-
 }
 
   
