@@ -5,7 +5,27 @@
 </head>
 <body>
   <h1>Upload PDF</h1>
-  <iframe src="https://production.talentide.talentide-app.workers.dev/" frameborder="0"></iframe>
-  <p>Uploaded files will be stored in Cloudflare Workers KV.</p>
+  <form id="uploadForm" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".pdf">
+    <button type="submit">Upload PDF</button>
+  </form>
+  <p id="uploadStatus"></p>
+  <script>
+    const form = document.getElementById('uploadForm');
+    const statusElement = document.getElementById('uploadStatus');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const response = await fetch('/', {
+        method: 'POST',
+        body: formData
+      });
+
+      const text = await response.text();
+      statusElement.textContent = text;
+    });
+  </script>
 </body>
 </html>
