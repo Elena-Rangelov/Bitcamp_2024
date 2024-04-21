@@ -23,10 +23,12 @@
       formData.append('file', fileInput); // Add the file to the FormData object
 
       try {
-        const response = await fetch('production.worker-bold-frog-ae99.talentide-app.workers.dev', {
+        const response = await fetch('production.talentide.talentide-app.workers.dev', {
           method: 'POST',
           body: formData,
-          // No need to set Content-Type header for FormData
+          headers: {
+            'Content-Type': 'multipart/form-data', // Set the correct Content-Type header
+          },
         });
 
         const result = await response.text();
