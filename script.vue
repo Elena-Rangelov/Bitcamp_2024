@@ -1,6 +1,8 @@
 let text1 = document.getElementsByClassName('title-text')[0];
 let arrow = document.getElementsByClassName('down-arrow')[0];
 let resume = document.getElementsByClassName('resume')[0];
+let resumeTok = document.getElementById('resume-tokenized');
+
 
 window.addEventListener('scroll', () => {
     let value = window.scrollY;
@@ -23,4 +25,3 @@ window.addEventListener('scroll', function() {
       navbar.classList.remove('black-background');
     }
   });
-

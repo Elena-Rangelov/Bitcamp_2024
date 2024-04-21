@@ -127,20 +127,39 @@ header{
     padding-top: 200px;
     padding-bottom: 200px;
     z-index: 2;
-    text-align: right;
-    justify-self: center;
+    text-align: center;
+    
 }
 
 .sec p {
-    margin-right: 75px;
+    margin-left: 650px;
 }
 
-.sec p:first-child {
+#first-text {
     font-family: "Roboto Serif", serif;
     font-size: 30px;
     color: #000000;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
+
+#second-text {
+    font-family: "Roboto Serif", serif;
+    font-size: 15px;
+    color: #000000;
+    margin-bottom: 25px;
+}
+
+#resume-tokenized {
+    position: relative;
+    bottom: 63vh;
+    width: 100%;
+    z-index: 10;
+    pointer-events: none;  
+}
+
+.hidden {
+    display: none;
+  }
 
 header.black-background {
     background-color: black;
