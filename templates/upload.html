@@ -24,7 +24,7 @@
             formData.append('pdf_file', file);
 
             fetch('./upload.html', {
-                method: 'POST',
+                method: 'GET',
                 body: formData  
             })
             .then(response => {
