@@ -11,7 +11,7 @@ WORKERS_ROUTE = 'https://your-workers-route.your-account.workers.dev'
 def index():
     return open('upload.html', 'r').read()
 
-@app.route('/upload', methods=['POST'])
+@app.route('/upload.html', methods=['POST'])
 def upload_file():
     pdf_file = request.files['pdfFile']
     if pdf_file.filename != '':
