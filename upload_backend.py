@@ -9,9 +9,9 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def home():
-    return send_from_directory('templates', 'upload.html')
+    return send_from_directory('templates', 'index.html')
 
-@app.route('/upload', methods=['POST'])
+@app.route('/templates/upload.html', methods=['POST'])
 def upload_file():
     if 'pdf_file' not in request.files:
         return "No file uploaded", 400
