@@ -94,19 +94,25 @@ button:hover {
     height: 100vh;
 }
 
-#title-text {
+.title-text {
     position: absolute;
     font-family: "Roboto Serif", serif;
     color: black;
+    text-align: right;
+    font-size: 28px;
+    z-index: 1;
+    top: 37%;
+    left: 58.6%;
+    line-height: 24px;
+    /* transform: translate(-50%, -50%); */
 }
 
 .parallax img {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
     pointer-events: none;
-
 }
 
   
