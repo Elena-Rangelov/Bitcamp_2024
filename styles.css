@@ -19,7 +19,7 @@
 body {
     background-repeat: no-repeat;
     background-image: url("images/bgs/grey-texture-bg.jpg");
-    background-size: 1300px;
+    background-size: cover;
     background-position: center;
 }
 
@@ -110,6 +110,7 @@ header{
     align-items: center;
     height: 100vh;
     z-index: 1;
+    overflow: hidden;
 }
 
 .parallax img {

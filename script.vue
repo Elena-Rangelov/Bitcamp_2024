@@ -4,10 +4,10 @@ let resume = document.getElementsByClassName('resume')[0];
 
 window.addEventListener('scroll', () => {
     let value = window.scrollY;
+
     text1.style.marginTop = value * 1.5 + 'px';
     arrow.style.marginTop = value * 1.5 + 'px';
     resume.style.marginTop = value * 2.5 + 'px';
-
 });
 
 window.addEventListener('scroll', function() {
