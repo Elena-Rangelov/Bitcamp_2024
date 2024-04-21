@@ -23,7 +23,7 @@
             const formData = new FormData();
             formData.append('pdf_file', file);
 
-            fetch('https://talentide.us/templates/upload', {
+            fetch('./upload.html', {
                 method: 'POST',
                 body: formData  
             })
