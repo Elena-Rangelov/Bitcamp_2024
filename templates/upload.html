@@ -1,35 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload PDF</title>
-</head>
-<body>
-    <h1>Upload PDF File</h1>
-    <form id="uploadForm">
-        <input type="file" id="pdfFile" accept=".pdf" required>
-        <button type="submit">Upload</button>
-    </form>
-
-    <script>
-        document.getElementById('uploadForm').addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const formData = new FormData();
-            const fileInput = document.getElementById('pdfFile');
-            formData.append('pdfFile', fileInput.files[0]);
-            
-            try {
-                const response = await fetch('https://your-worker-subdomain.your-account.workers.dev/upload', {
-                    method: 'POST',
-                    body: formData
-                });
-                const result = await response.text();
-                alert(result);
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        });
-    </script>
-</body>
-</html>
+<form id="uploadForm" enctype="multipart/form-data" action="https://talentide-app.workers.dev/templates/upload.html" method="POST">
+    <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" required>
+    <button type="submit">Upload</button>
+</form>

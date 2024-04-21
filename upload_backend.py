@@ -1,20 +1,19 @@
-from flask import Flask, render_template, request, jsonify
-import requests
+# import requests
 
-app = Flask(__name__)
+# def upload_pdf_to_worker(pdf_file_path):
+#     url = 'https://your-worker-subdomain.your-account.workers.dev/upload'
+#     files = {'pdfFile': open(pdf_file_path, 'rb')}
 
-@app.route('/')
-def index():
-    return render_template('upload.html')
+#     try:
+#         response = requests.post(url, files=files)
+#         if response.ok:
+#             return response.text  # You can handle the response as needed
+#         else:
+#             return 'Error uploading PDF file.'
+#     except requests.RequestException as e:
+#         return f'Error: {e}'
 
-@app.route('/upload', methods=['POST'])
-def upload_file():
-    pdf_file = request.files['pdfFile']
-    if pdf_file:
-        response = requests.post('https://your-worker-subdomain.your-account.workers.dev/storepdf', files={'pdfFile': pdf_file})
-        return response.text
-    else:
-        return 'No file selected.'
-
-if __name__ == '__main__':
-    app.run(debug=True)
+# # Example usage:
+# pdf_file_path = '/path/to/your/pdf/file.pdf'
+# result = upload_pdf_to_worker(pdf_file_path)
+# print(result)
