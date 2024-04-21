@@ -32,7 +32,7 @@ from flask_cors import CORS
 from cloudflare import Cloudflare
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/store-pdf": {"origins": "https://talentide.us"}})
 
 # Initialize Cloudflare client
 # Replace placeholders with your actual Cloudflare credentials
