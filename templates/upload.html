@@ -3,34 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talentide PDF Upload</title>
+    <title>Upload PDF</title>
 </head>
 <body>
-    <h1>Upload PDF to Talentide KV</h1>
-    <form id="upload-form" method="post" enctype="multipart/form-data">
-        <label for="pdf-file">Select PDF:</label>
-        <input type="file" id="pdf-file" name="pdf_file" accept=".pdf">
-        <br>
+    <h1>Upload PDF File</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="pdfFile" accept=".pdf" required>
         <button type="submit">Upload</button>
     </form>
-    <div id="message"></div>
-
-    <script>
-        const form = document.getElementById('upload-form');
-        const message = document.getElementById('message');
-
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            const formData = new FormData(form);
-            const response = await fetch('/upload', {
-                method: 'POST',
-                body: formData
-            });
-
-            const data = await response.json();
-            message.textContent = data.message;
-        });
-    </script>
 </body>
 </html>
